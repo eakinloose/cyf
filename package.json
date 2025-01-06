@@ -7,7 +7,8 @@
     "run-all-headless": "npx cypress run",
     "run-all-headed": "npx cypress run --headed",
     "run-all-chrome": "npx cypress run --headed --browser chrome",
-    "delete-all-reports": "rimraf cypress/reports  && rimraf cypress/screenshots",
+    "delete-all-reports-local": "rimraf cypress/reports  && rimraf cypress/screenshots",
+    "delete-all-reports": "rm -rf cypress/reports  && rm -rf cypress/screenshots",
     "smoke-pack": "npm run delete-all-reports && npx cypress run --spec 'cypress/e2e/smokeTest/*.cy.js' --headed --browser chrome",
     "regression-pack": "npm run delete-all-reports && npx cypress run --spec 'cypress/e2e/regression/*.cy.js' --headed --browser chrome"
   },
