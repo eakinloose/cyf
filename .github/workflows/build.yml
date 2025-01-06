@@ -28,7 +28,7 @@ jobs:
           username: emmanuelakinloose20@gmail.com
           password: 109qpoalkzmn@G
           subject: Cypress Test Report
-             to: emmanuelakinloose2@gmail.com
+          to: emmanuelakinloose2@gmail.com
           body: >
             Hi,
 
