@@ -7,9 +7,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      # Install npm dependencies, cache them correctly
-      # and run all Cypress tests
-
       - name: Cypress run
         uses: cypress-io/github-action@v5
         with:
@@ -21,6 +18,22 @@ jobs:
         with:
           name: Mochawesome HTML Report
           path: cypress/reports/html
+
+      - name: Email Report
+        if: always()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: emmanuelakinloose20@gmail.com
+          password: 109qpoalkzmn@G
+          subject: Cypress Test Report
+          to:emmanuelakinloose2@gmail.com,eakinloose@gmail.com
+          body: >
+            Hi,
+
+            Please find the attached Cypress test report.
+          attachment: cypress/reports/html
 
       - name: Slack Notification
         if: always()
