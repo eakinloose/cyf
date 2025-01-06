@@ -1,0 +1,24 @@
+{
+  "name": "configuredframework",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx cypress open",
+    "run-all-headless": "npx cypress run",
+    "run-all-headed": "npx cypress run --headed",
+    "run-all-chrome": "npx cypress run --headed --browser chrome",
+    "delete-all-reports": "rimraf cypress/reports  && rimraf cypress/screenshots",
+    "smoke-pack": "npm run delete-all-reports && npx cypress run --spec 'cypress/e2e/smokeTest/*.cy.js' --headed --browser chrome",
+    "regression-pack": "npm run delete-all-reports && npx cypress run --spec 'cypress/e2e/regression/*.cy.js' --headed --browser chrome"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "cypress": "^13.17.0"
+  },
+  "dependencies": {
+    "cypress-mochawesome-reporter": "^3.8.2"
+  }
+}
