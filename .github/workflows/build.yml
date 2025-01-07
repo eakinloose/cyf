@@ -27,14 +27,14 @@ jobs:
           server_port: 465
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
-          from: ${{ secrets.EMAIL_USERNAME }}
+          from: Akinloose Emmanuel Temidayo SDET
           subject: Cypress Test Report
           to: emmanuelakinloose2@gmail.com,eakinloose@gmail.com
           body: >
             Hi,
 
             Please find the attached Cypress test report.
-          attachment: cypress/reports/html
+          attachments: cypress/reports/html
 
       - name: Slack Notification
         if: always()
