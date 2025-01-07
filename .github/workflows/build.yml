@@ -34,7 +34,7 @@ jobs:
             Hi,
 
             Please find the attached Cypress test report.
-          attachments: cypress/reports/html
+          attachments: cypress/reports/html/Mochawesome HTML Report.zip
 
       - name: Slack Notification
         if: always()
