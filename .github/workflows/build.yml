@@ -30,18 +30,22 @@ jobs:
           from: Akinloose Emmanuel Temidayo SDET
           subject: Cypress Test Report
           to: emmanuelakinloose2@gmail.com,eakinloose@gmail.com
-          body: >
-            Hi,
+          body: |
+            Hello,
 
-            Please find the attached Cypress test report.
+            I hope this email finds you well.
+
+            Please find the attached Cypress test report for the most recent regression tests run on our application.
+
+            To view the results:
+            1. Download the attached file: **index.html**.
+            2. Open the file using your preferred web browser (e.g., Chrome, Firefox, Edge, etc.).
+
+            This will open the full test report with detailed results, including passed and failed tests, along with any relevant information and logs.
+
+            If you have any questions or need further details, feel free to reach out.
+
+            Best regards,  
+            Akinloose Emmanuel Temidayo  
+            Software Development Engineer in Test (SDET)
           attachments: cypress/reports/html/index.html
-
-      - name: Slack Notification
-        if: always()
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_COLOR: ${{ job.status }}
-          SLACK_ICON: https://github.com/rtCamp.png?size=48
-          SLACK_MESSAGE: "Test Automation Report https://github.com/eakinloose/cyf/actions/runs/${{github.run_id}}"
-          SLACK_TITLE: Cypress Web Test
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
