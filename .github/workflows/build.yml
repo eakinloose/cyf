@@ -25,11 +25,11 @@ jobs:
         with:
           server_address: smtp.gmail.com
           server_port: 465
-          username: emmanuelakinloose20@gmail.com
-          password: 109qpoalkzmn@G
-          from: emmanuelakinloose20@gmail.com
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          from: ${{ secrets.EMAIL_USERNAME }}
           subject: Cypress Test Report
-          to: emmanuelakinloose2@gmail.com
+          to: emmanuelakinloose2@gmail.com,eakinloose@gmail.com
           body: >
             Hi,
 
