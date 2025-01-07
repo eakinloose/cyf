@@ -19,7 +19,7 @@ module.exports = defineConfig({
     reporter: "cypress-mochawesome-reporter",
     reporterOptions: {
       charts: true,
-      reportPageTitle: "AltPro V2 web result",
+      reportPageTitle: "Cypress test report",
       embeddedScreenshots: true,
       inlineAssets: true,
       saveAllAttempts: false,

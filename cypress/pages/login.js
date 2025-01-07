@@ -1,13 +1,14 @@
 export class LoginPagePO {
   interactors = {
-    email: "",
-    password: "",
-    submit: "",
+    email: ".v-form > div:nth-of-type(1) [required]",
+    password: ".v-form > div:nth-of-type(2) [required]",
+    submit:
+      ".alt-btn.btn-purple.py-4.tw-rounded.tw-text-sm.tw-w-full > .tw-flex.tw-gap-x-2.tw-justify-center",
   };
 
   assertions = {
-    successMessage: "",
-    errorMessage: "",
+    successMessage: ".transaction-chart > .mb-15",
+    errorMessage: "div[role='alert'] > .v-toast__text",
   };
 
   enterEmail(email) {

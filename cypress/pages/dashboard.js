@@ -1,9 +1,9 @@
 export class DashboardPO {
   interactors = {
-    userGreeting: "",
-    profileLink: "",
-    logoutButton: "",
-    welcomeMessage: "",
+    userGreeting: ".transaction-chart > .mb-15",
+    profileLink: ".transaction-chart > .mb-15",
+    logoutButton: ".lg:tw-flex.tw-cursor-pointer.tw-hidden.tw-items-center",
+    welcomeMessage: ".transaction-chart > .mb-15",
   };
 
   assertions = {

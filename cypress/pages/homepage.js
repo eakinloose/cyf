@@ -1,12 +1,13 @@
 export class HomePagePO {
   interactors = {
-    getStartedButton: "",
-    signInButton: "",
+    getStartedButton:
+      "[class='tw-text-sm alt-btn tw-rounded btn-purple tw-w-52 mt-6'] [class]",
+    signInButton: ".btn-light-purple.tw-rounded",
     contactUsLink: "",
     aboutUsLink: "",
     searchInput: "",
     searchButton: "",
-    featuredSection: "",
+    featuredSection: "#about-altconnect",
   };
 
   assertions = {
