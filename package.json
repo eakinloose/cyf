@@ -7,16 +7,21 @@
     "run-all-headless": "npx cypress run",
     "run-all-headed": "npx cypress run --headed",
     "run-all-chrome": "npx cypress run --headed --browser chrome",
-    "delete-all-reports-local": "rimraf cypress/reports  && rimraf cypress/screenshots",
-    "delete-all-reports": "rm -rf cypress/reports  && rm -rf cypress/screenshots",
+    "delete-all-reports-local": "rimraf cypress/reports && rimraf cypress/screenshots && rimraf allure-results && rimraf allure-report",
+    "delete-all-reports": "rm -rf cypress/reports && rm -rf cypress/screenshots && rm -rf allure-results && rm -rf allure-report",
     "smoke-pack": "npm run delete-all-reports && npx cypress run --spec 'cypress/e2e/smokeTest/*.cy.js' --headed --browser chrome",
-    "regression-pack": "npm run delete-all-reports && npx cypress run --spec 'cypress/e2e/regression/*.cy.js' --headed --browser chrome"
+    "regression-pack": "npm run delete-all-reports && npx cypress run --spec 'cypress/e2e/regression/*.cy.js' --headed --browser chrome",
+    "allure-serve": "npx allure serve allure-results",
+    "test-with-allure": "npm run delete-all-reports && npx cypress run --spec 'cypress/e2e/regression/*.cy.js' --headed --browser chrome && npm run npx allure generate allure-results --clean -o allure-report",
+    "test-with-allure-local": "npm run delete-all-reports-local && npx cypress run --spec 'cypress/e2e/regression/*.cy.js' --headed --browser chrome && npx allure generate allure-results --clean -o allure-report && allure open allure-reports"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "allure-commandline": "^2.32.0",
+    "allure-cypress": "^3.0.8",
     "cypress": "^13.17.0"
   },
   "dependencies": {
