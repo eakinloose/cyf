@@ -1,15 +1,13 @@
 const { defineConfig } = require("cypress");
-const { allureCypress } = require("allure-cypress/reporter");
 
 module.exports = defineConfig({
+  pageLoadTimeout: 100000,
   e2e: {
     downloadsFolder: "cypress/downloads",
     setupNodeEvents(on, config) {
-      allureCypress(on, config, {
-        resultsDir: "allure-results",
-      });
-      return config;
+      require("cypress-mochawesome-reporter/plugin")(on);
     },
+
     baseUrl: "https://altconnect-qa.sterlingapps.p.azurewebsites.net",
     viewportWidth: 1440,
     viewportHeight: 950,
@@ -18,6 +16,14 @@ module.exports = defineConfig({
     screenshotOnRunFailure: true,
     trashAssetsBeforeRuns: true,
     video: false,
+    reporter: "cypress-mochawesome-reporter",
+    reporterOptions: {
+      charts: true,
+      reportPageTitle: "Cypress test report",
+      embeddedScreenshots: true,
+      inlineAssets: true,
+      saveAllAttempts: false,
+    },
     retries: {
       runMode: 0,
       openMode: 0,

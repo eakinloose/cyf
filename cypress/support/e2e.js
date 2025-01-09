@@ -1,6 +1,5 @@
 import "./commands";
-// import("cypress-mochawesome-reporter/register");
-import "allure-cypress";
+import("cypress-mochawesome-reporter/register");
 
 Cypress.on("uncaught:exception", (err, runnable) => {
   return false;

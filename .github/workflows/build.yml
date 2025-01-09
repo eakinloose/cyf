@@ -4,40 +4,22 @@ jobs:
   cypress-run:
     runs-on: ubuntu-22.04
     steps:
-      # Step 1: Checkout code
       - name: Checkout
         uses: actions/checkout@v3
 
-      # Step 2: Set up Node.js
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "16"
-
-      # Step 3: Install dependencies
-      - name: Install dependencies
-        run: npm ci
-
-      # Step 4: Run Cypress tests with Allure
-      - name: Run Cypress tests with Allure
+      - name: Cypress run
         uses: cypress-io/github-action@v5
         with:
-          command: npm run test-with-allure
+          command: npm run regression-pack
 
-      # Step 4.1: Generate Allure report
-      - name: Generate Allure report
-        run: |
-          npx allure generate allure-results --clean -o allure-report
-
-      # Step 5: Upload Allure HTML report as an artifact
-      - name: Upload Allure HTML Report
+      - name: Cypress Test Report
+        if: always()
         uses: actions/upload-artifact@v3
         with:
-          name: Allure HTML Report
-          path: allure-report
+          name: Mochawesome HTML Report
+          path: cypress/reports/html
 
-      # Step 6: Email Allure report
-      - name: Email Allure Report
+      - name: Email Report
         if: always()
         uses: dawidd6/action-send-mail@v3
         with:
@@ -46,18 +28,24 @@ jobs:
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           from: Akinloose Emmanuel Temidayo SDET
-          subject: Allure Test Report
-          to: emmanuelakinloose2@gmail.com,eakinloose@gmail.com
+          subject: Cypress Test Report
+          to: emmanuelakinloose2@gmail.com,eakinloose@gmail.com,mary.francis@sterling.ng
           body: |
             Hello,
 
-            Please find the attached Allure test report for the most recent regression tests run on our application.
+            I hope this email finds you well.
+
+            Please find the attached Cypress test report for the most recent regression tests run on our application.
 
             To view the results:
-            1. Download the attached file.
-            2. Open the `index.html` file inside the downloaded folder using your preferred web browser.
+            1. Download the attached file: **index.html**.
+            2. Open the file using your preferred web browser (e.g., Chrome, Firefox, Edge, etc.).
+
+            This will open the full test report with detailed results, including passed and failed tests, along with any relevant information and logs.
+
+            If you have any questions or need further details, feel free to reach out.
 
             Best regards,  
             Akinloose Emmanuel Temidayo  
             Software Development Engineer in Test (SDET)
-          attachments: allure-report
+          attachments: cypress/reports/html/index.html
