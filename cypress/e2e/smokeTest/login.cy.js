@@ -7,6 +7,8 @@ const loginPagePO = new LoginPagePO();
 
 describe("Login Suite", () => {
   beforeEach(() => {
+    const apiKey = Cypress.env("API_KEY");
+    cy.log(`Bearer ${apiKey}`);
     homePagePO.openURL();
     homePagePO.clickSignIn();
   });

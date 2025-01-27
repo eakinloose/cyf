@@ -1,4 +1,5 @@
 const { defineConfig } = require("cypress");
+require("dotenv").config();
 
 module.exports = defineConfig({
   pageLoadTimeout: 100000,
@@ -28,6 +29,8 @@ module.exports = defineConfig({
       runMode: 0,
       openMode: 0,
     },
-    env: {},
+    env: {
+      API_KEY: process.env.API_KEY,
+    },
   },
 });
