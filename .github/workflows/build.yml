@@ -29,7 +29,7 @@ jobs:
           password: ${{ secrets.EMAIL_PASSWORD }}
           from: Akinloose Emmanuel Temidayo SDET
           subject: Cypress Test Report
-          to: emmanuelakinloose2@gmail.com,eakinloose@gmail.com,samuel.oduba@sterling.ng
+          to: emmanuelakinloose2@gmail.com,eakinloose@gmail.com
           body: |
             Hello,
 
